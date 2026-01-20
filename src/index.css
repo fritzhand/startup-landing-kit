@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --secondary: #e2e8f0;
+    --secondary-foreground: #1e293b;
+    --accent: #f1f5f9;
+    --accent-foreground: #0f172a;
+  }
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+}
+
+/* Safe overscroll */
+html {
+  overscroll-behavior-y: none;
+}
