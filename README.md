@@ -6,8 +6,9 @@ A clean, high-performance, open-source landing page kit for startups. Built with
 
 ## Why use this?
 - 🚀 **Ready to ship**: Clone, configure, and deploy in minutes.
-- 🎨 **Easy customization**: All content and styles driven by a single config file.
+- 🎨 **Easy customization**: Type-safe config file controls all content and styles.
 - 📱 **Mobile-first**: Responsive design that looks great on all devices.
+- ⚡ **High Conversion**: Designed with outcome-driven UX principles.
 - 🔒 **Privacy-focused**: No tracking scripts by default.
 - 📧 **Waitlist ready**: Built-in support for Google Sheets or Resend.
 
