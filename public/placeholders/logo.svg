@@ -1,0 +1,5 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="50" height="50" rx="12" fill="#2563EB"/>
+<path d="M25 15L35 35H15L25 15Z" fill="white"/>
+<text x="65" y="32" font-family="sans-serif" font-weight="bold" font-size="24" fill="#0F172A">AcmeAI</text>
+</svg>

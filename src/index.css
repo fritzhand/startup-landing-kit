@@ -19,9 +19,19 @@ body {
   @apply bg-background text-foreground antialiased;
   /* Prevent horizontal scroll */
   overflow-x: hidden;
+  width: 100%;
 }
 
-/* Safe overscroll */
 html {
+  /* Safe overscroll */
   overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Ensure containers don't overflow */
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }

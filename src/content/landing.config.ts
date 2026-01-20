@@ -3,7 +3,7 @@ import type { LandingConfig } from "./landing.schemas";
 export const config: LandingConfig = {
     meta: {
         title: "Startup Landing Kit",
-        description: "A free, open-source landing page kit for startups. Built with React, Tailwind, and Vite.",
+        description: "Launch your startup in hours with this conversion-focused landing page kit.",
         lang: "en",
         ogImage: "/placeholders/og.png",
         favicon: "/placeholders/favicon.svg",
@@ -11,7 +11,7 @@ export const config: LandingConfig = {
     branding: {
         logo: {
             src: "/placeholders/logo.svg",
-            alt: "Startup Kit Logo",
+            alt: "AcmeAI Logo",
         },
         colors: {
             primary: "#2563eb",
@@ -19,162 +19,135 @@ export const config: LandingConfig = {
         },
     },
     waitlist: {
-        provider: "mock", // "mock" | "sheets" | "resend"
+        provider: "mock",
     },
     hero: {
-        headline: "Launch your startup in hours, not weeks.",
-        subheadline: "The ultimate open-source landing page kit for founders. Clean code, conversion-focused, and ready to deploy.",
-        primaryCta: "Get Early Access",
-        secondaryCta: "View on GitHub",
-        video: "https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0", // Placeholder
-        bullets: ["Zero dependencies", "Mobile-first", "Dark mode ready"],
-        socialProof: {
-            heading: "Trusted by founders at",
-            logos: [
-                { name: "Acme", src: "/placeholders/logo.svg" },
-                { name: "Globex", src: "/placeholders/logo.svg" },
-                { name: "Soylent", src: "/placeholders/logo.svg" },
-            ],
+        headline: "Automate your workflow in seconds, not hours.",
+        subheadline: "Stop wasting time on manual data entry. Integrate your tools, set your rules, and let AcmeAI handle the rest.",
+        primaryCta: "Join Waitlist",
+        secondaryCta: "Watch Demo",
+        secondaryCtaLink: "#demo",
+        image: {
+            src: "/placeholders/product-shot.png",
+            alt: "AcmeAI Dashboard Interface",
         },
+        trust: {
+            metric: {
+                value: "10,000+",
+                label: "Founders automating daily"
+            }
+        }
     },
-    problem: {
-        heading: "Stop wasting time on landing pages.",
-        subheading: "Founders spend too much time building the site instead of the product.",
-        points: [
-            {
-                icon: "Clock",
-                title: "Slow Development",
-                description: "Building from scratch takes days of design and coding time you don't have.",
-            },
-            {
-                icon: "LayoutTemplate",
-                title: "Generic Templates",
-                description: "Most templates feature bloated code and impossible-to-edit designs.",
-            },
-            {
-                icon: "Zap",
-                title: "Performance Issues",
-                description: "Heavy builders and unoptimized images kill your conversion rates.",
-            },
-        ],
+    socialProof: {
+        logos: [
+            { name: "TechCrunch", src: "/placeholders/logo.png" },
+            { name: "Forbes", src: "/placeholders/logo.png" },
+            { name: "ProductHunt", src: "/placeholders/logo.png" },
+            { name: "IndieHackers", src: "/placeholders/logo.png" },
+        ]
     },
-    solution: {
-        heading: "A better way to ship.",
-        subheading: "Everything you need to validate your idea and collect emails.",
+    productExplanation: {
+        heading: "See how it works",
+        subheading: "Simple, powerful, and built for speed.",
+        steps: [
+            { image: "/placeholders/product-shot.png", caption: "1. Connect your favourite apps." },
+            { image: "/placeholders/product-shot.png", caption: "2. Define your logic with AI." },
+            { image: "/placeholders/product-shot.png", caption: "3. Watch your productivity soar." }
+        ]
+    },
+    howItWorks: {
+        heading: "3 Simple Steps to Freedom",
         steps: [
             {
-                title: "Clone & Install",
-                description: "Get the repo, install dependencies, and you're ready to go in 30 seconds.",
-                image: "/placeholders/product-shot.png",
+                title: "Connect",
+                description: "Link your existing tools with one click.",
+                icon: "Plug",
             },
             {
-                title: "Customize Config",
-                description: "Edit a single file to update all text, images, and colors. No complex code.",
-                image: "/placeholders/product-shot.png",
+                title: "Configure",
+                description: "Tell our AI what you want to automate.",
+                icon: "Settings",
             },
             {
-                title: "Deploy Anywhere",
-                description: "Push to Vercel or Netlify for free SSL and blazing fast hosting.",
-                image: "/placeholders/product-shot.png",
+                title: "Relax",
+                description: "We handle the repetitive tasks for you.",
+                icon: "Coffee",
             },
         ],
     },
-    features: {
-        heading: "Everything under the hood.",
-        subheading: "Strictly what you need, nothing you don't.",
-        list: [
-            {
-                title: "React + Vite + TS",
-                description: "The modern standard for web development. Fast and type-safe.",
-                icon: "Code",
-            },
-            {
-                title: "Tailwind CSS v3",
-                description: "Utility-first styling that makes customization a breeze.",
-                icon: "Wind",
-            },
-            {
-                title: "Waitlist Ready",
-                description: "Integrated form handling for Sheets, Resend, or your own backend.",
-                icon: "Mail",
-            },
-        ],
-        useCases: [
-            {
-                title: "SaaS Products",
-                description: "Validate software ideas quickly.",
-            },
-            {
-                title: "Newsletters",
-                description: "Collect subscribers before writing.",
-            },
-            {
-                title: "Mobile Apps",
-                description: "Get beta testers before the App Store.",
-            },
-        ],
-    },
-    testimonials: {
-        heading: "Loved by developers.",
-        items: [
-            {
-                quote: "This kit saved me a weekend of work. I launched my waitlist in 2 hours.",
-                author: "Alex Rivera",
-                role: "Indie Hacker",
-                avatar: "/placeholders/avatar-1.png",
-            },
-            {
-                quote: "Clean code, great design. Exactly what I needed for my new project.",
-                author: "Sarah Chen",
-                role: "CTO @ TechFlow",
-                avatar: "/placeholders/avatar-1.png",
-            },
-            {
-                quote: "The config-based setup is genius. Super easy to hand off to marketing.",
-                author: "Mike Johnson",
-                role: "Freelancer",
-                avatar: "/placeholders/avatar-1.png",
-            },
-        ],
-    },
-    faq: {
-        heading: "Frequently Asked Questions",
-        items: [
-            {
-                question: "Is this free?",
-                answer: "Yes, 100% open source under MIT License.",
-            },
-            {
-                question: "Do I need to know React?",
-                answer: "Basic knowledge helps, but you can get far just editing the config file.",
-            },
-            {
-                question: "How do I deploy?",
-                answer: "We recommend Vercel or Netlify. Just connect your repo and it works.",
-            },
-        ],
+    valueBenefits: {
+        heading: "Why top founders choose us",
+        benefits: [
+            { title: "Save 20+ Hours/Week", description: "Reclaim your time for high-leverage work." },
+            { title: "Zero Coding Required", description: "If you can write an email, you can automate." },
+            { title: "Enterprise Security", description: "Bank-grade encryption keeps your data safe." },
+        ]
     },
     pricing: {
-        heading: "Simple Pricing",
+        heading: "Simple, transparent pricing",
+        subheading: "Start for free, upgrade as you grow.",
         plans: [
             {
-                name: "Open Source",
+                name: "Starter",
                 price: "$0",
-                description: "Free forever.",
-                features: ["Unlimited Projects", "MIT License", "Community Support"],
-                cta: "Clone Now",
+                description: "Perfect for side projects.",
+                features: ["5 Automations", "Basic Support", "Community Access"],
+                cta: "Start Free",
+            },
+            {
+                name: "Pro",
+                price: "$29/mo",
+                description: "For serious founders.",
+                features: ["Unlimited Automations", "Priority Support", "Advanced Analytics"],
+                cta: "Get Pro",
+                popular: true,
+            },
+            {
+                name: "Business",
+                price: "$99/mo",
+                description: "For scaling teams.",
+                features: ["Team Seats", "SSO", "Dedicated Account Manager"],
+                cta: "Contact Sales",
+            },
+
+        ],
+        annualToggle: true
+    },
+    faq: {
+        heading: "Questions? We have answers.",
+        items: [
+            {
+                question: "Is there a free trial?",
+                answer: "Yes, our Starter plan is free forever.",
+            },
+            {
+                question: "Can I cancel anytime?",
+                answer: "Absolutely. No lock-in contracts.",
+            },
+            {
+                question: "Is my data secure?",
+                answer: "We use AES-256 encryption and never sell your data.",
+            },
+            {
+                question: "Do I need to code?",
+                answer: "Not at all. Our visual builder is drag-and-drop.",
             },
         ],
     },
+    finalCta: {
+        heading: "Ready to reclaim your time?",
+        primaryCta: "Join the Waitlist",
+        trustSnippet: "No credit card required. Cancel anytime.",
+    },
     footer: {
-        copyright: "© 2026 VentureStudio, Ahmedabad University.",
+        copyright: "© 2026 AcmeAI Inc.",
         links: [
-            { label: "Privacy", href: "#" },
-            { label: "Terms", href: "#" },
+            { label: "Privacy Policy", href: "#" },
+            { label: "Terms of Service", href: "#" },
         ],
         socials: [
             { platform: "Twitter", href: "#" },
-            { platform: "GitHub", href: "#" },
+            { platform: "LinkedIn", href: "#" },
         ],
     },
 };

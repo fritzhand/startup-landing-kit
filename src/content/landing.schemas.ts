@@ -14,7 +14,7 @@ export const ConfigSchema = z.object({
             alt: z.string(),
         }),
         colors: z.object({
-            primary: z.string(), // CSS hex or variable
+            primary: z.string(),
             secondary: z.string().optional(),
         }).optional(),
     }),
@@ -26,78 +26,89 @@ export const ConfigSchema = z.object({
         subheadline: z.string(),
         primaryCta: z.string(),
         secondaryCta: z.string().optional(),
-        video: z.string().optional(), // YouTube embed ID or video URL
+        secondaryCtaLink: z.string().optional(),
+        video: z.string().optional(),
         image: z.object({
             src: z.string(),
             alt: z.string(),
         }).optional(),
-        bullets: z.array(z.string()),
-        socialProof: z.object({
-            heading: z.string(),
+        trust: z.object({
             logos: z.array(z.object({
                 name: z.string(),
                 src: z.string(),
-            })),
+            })).optional(),
+            metric: z.object({
+                value: z.string(),
+                label: z.string(),
+            }).optional(),
         }).optional(),
     }),
-    problem: z.object({
+    socialProof: z.object({
+        logos: z.array(z.object({
+            name: z.string(),
+            src: z.string(),
+        })).optional(),
+        metric: z.object({
+            value: z.string(),
+            label: z.string(),
+        }).optional(),
+        testimonials: z.array(z.object({
+            quote: z.string(),
+            author: z.string(),
+            role: z.string(),
+            avatar: z.string().optional(),
+        })).optional(),
+    }).optional(),
+    productExplanation: z.object({
         heading: z.string(),
         subheading: z.string().optional(),
-        points: z.array(z.object({
-            icon: z.string(), // Lucide icon name
-            title: z.string(),
-            description: z.string(),
-        })),
+        steps: z.array(z.object({
+            image: z.string(),
+            caption: z.string(),
+        })).min(2).max(4),
     }),
-    solution: z.object({
+    howItWorks: z.object({
         heading: z.string(),
         subheading: z.string().optional(),
         steps: z.array(z.object({
             title: z.string(),
             description: z.string(),
-            image: z.string().optional(),
-        })),
+            icon: z.string().optional(),
+        })).length(3, "Must have exactly 3 steps"),
     }),
-    features: z.object({
+    valueBenefits: z.object({
         heading: z.string(),
-        subheading: z.string().optional(),
-        list: z.array(z.object({
+        benefits: z.array(z.object({
             title: z.string(),
             description: z.string(),
             icon: z.string().optional(),
-        })),
-        useCases: z.array(z.object({
-            title: z.string(),
-            description: z.string(),
-        })).optional(),
-    }),
-    testimonials: z.object({
-        heading: z.string(),
-        items: z.array(z.object({
-            quote: z.string(),
-            author: z.string(),
-            role: z.string(),
-            avatar: z.string().optional(),
-        })),
+        })).min(3).max(6),
     }),
     pricing: z.object({
         heading: z.string(),
         subheading: z.string().optional(),
         plans: z.array(z.object({
             name: z.string(),
-            price: z.string(),
+            price: z.string(), // e.g. "$29" or "$29/mo"
             description: z.string(),
             features: z.array(z.string()),
             cta: z.string(),
             popular: z.boolean().optional(),
-        })),
+        })).min(1).max(3),
+        annualToggle: z.boolean().default(false), // Logic left to component to implementation details or simple display for now
     }).optional(),
     faq: z.object({
         heading: z.string(),
         items: z.array(z.object({
             question: z.string(),
             answer: z.string(),
-        })),
+        })).min(4).max(6),
+    }),
+    finalCta: z.object({
+        heading: z.string(),
+        subheading: z.string().optional(),
+        primaryCta: z.string(),
+        trustSnippet: z.string().optional(), // "No credit card required"
     }),
     footer: z.object({
         copyright: z.string(),

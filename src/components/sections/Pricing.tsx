@@ -1,16 +1,21 @@
 import { config } from '../../content/landing.config';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { Check } from 'lucide-react';
 import { Card } from '../ui/Card';
+import { Toggle } from '../ui/Toggle';
+import { Check } from 'lucide-react';
+import { useState } from 'react';
+import { cn } from '../../lib/utils';
 
 export function Pricing() {
+    const [annual, setAnnual] = useState(false);
+
     if (!config.pricing) return null;
 
     return (
-        <section className="py-24 sm:py-32">
+        <section className="py-24 sm:py-32" id="pricing">
             <Container>
-                <div className="mx-auto max-w-2xl text-center">
+                <div className="mx-auto max-w-2xl text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                         {config.pricing.heading}
                     </h2>
@@ -19,36 +24,58 @@ export function Pricing() {
                             {config.pricing.subheading}
                         </p>
                     )}
+
+                    {config.pricing.annualToggle && (
+                        <div className="mt-8 flex justify-center">
+                            <Toggle
+                                enabled={annual}
+                                setEnabled={setAnnual}
+                                labelLeft="Monthly"
+                                labelRight="Annual (Save 20%)"
+                            />
+                        </div>
+                    )}
                 </div>
-                <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-1">
+
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-8 bg">
                     {config.pricing.plans.map((plan) => (
-                        <Card key={plan.name} className="flex flex-col justify-between border-2 border-primary/10 bg-white p-8 ring-1 ring-primary/10 xl:p-10">
-                            <div>
-                                <div className="flex items-center justify-between gap-x-4">
-                                    <h3 className="text-lg font-semibold leading-8 text-slate-900">{plan.name}</h3>
-                                    {plan.popular && (
-                                        <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold leading-5 text-primary">Most popular</span>
-                                    )}
-                                </div>
-                                <p className="mt-4 text-sm leading-6 text-slate-600">{plan.description}</p>
-                                <p className="mt-6 flex items-baseline gap-x-1">
-                                    <span className="text-4xl font-bold tracking-tight text-slate-900">{plan.price}</span>
-                                </p>
-                                <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-slate-600">
-                                    {plan.features.map((feature) => (
-                                        <li key={feature} className="flex gap-x-3">
-                                            <Check className="h-6 w-5 flex-none text-primary" aria-hidden="true" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
+                        <Card key={plan.name} className={cn(
+                            "flex flex-col p-8 relative rounded-2xl",
+                            plan.popular ? "border-2 border-primary shadow-xl scale-105 z-10 bg-white" : "border border-slate-200 bg-white/50"
+                        )}>
+                            {plan.popular && (
+                                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    Most Popular
+                                </span>
+                            )}
+
+                            <h3 className="text-lg font-semibold leading-8 text-slate-900">{plan.name}</h3>
+                            <p className="mt-4 text-sm leading-6 text-slate-600 min-h-[48px]">{plan.description}</p>
+
+                            <div className="mt-6 flex items-baseline gap-x-1">
+                                <span className="text-4xl font-bold tracking-tight text-slate-900">{plan.price}</span>
+                                {/* Logic for annual price calculation could go here if schema supported it, for now using string from config */}
                             </div>
-                            <Button className="mt-8 w-full" variant={plan.popular ? 'primary' : 'outline'}>
+
+                            <ul className="mt-8 space-y-3 text-sm leading-6 text-slate-600 flex-1">
+                                {plan.features.map((feature) => (
+                                    <li key={feature} className="flex gap-x-3">
+                                        <Check className="h-6 w-5 flex-none text-primary" aria-hidden="true" />
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <Button variant={plan.popular ? "primary" : "outline"} className="mt-8 w-full">
                                 {plan.cta}
                             </Button>
                         </Card>
                     ))}
                 </div>
+
+                <p className="text-center text-sm text-slate-500 mt-12">
+                    No credit card required. Cancel anytime.
+                </p>
             </Container>
         </section>
     );
